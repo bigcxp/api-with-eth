@@ -23,117 +23,41 @@
 * eth_accounts  返回客户端拥有的地址列表
 * eth_blockNumber 返回当前的“最新块号”
 * eth_call 立即执行新的消息调用，而无需在区块链上创建事务，为了防止滥用此api,gas参数不得超过当前区块限制的10倍，一般在本地测试环境中创建此行为。
-![](/img/2.png)
+
 * eth_chainId 返回当前配置链的ID，这是EIP-155引入的用于受重播保护的交易签名中的值。
 * eth_eatimateGas 生成并返回完成交易所需要的gas的估算值，交易将不会添加到区块链中，一般估算值可能大大超过实际使用的值，方法跟eth_call类似，也会消耗gas，所以一般在测试环境中创建
 * eth_gas 返回以wei为单位的当前gas
 * eth_getBalance 返回给定地址的账户余额
-
 * eth_getBlockByHash 按哈希返回有关块的信息
-
-![](/img/5.png)
 * eth_getBlockByNumber 按哈希返回有关块的信息
-![](/img/6.png)
-
-![](/img/7.png)
 * eth_getBlockTransactionCountByHash 返回具有给定区块哈希值得区块中的事务数
-![](/img/8.png)
-
-![](/img/9.png)
-* eth_getBlockTransactionCountByNumber 返回具有给定区块号的区块中的交易数量
-![](/img/10.png)  
-
-![](/img/11.png) 
+* eth_getBlockTransactionCountByNumber 返回具有给定区块号的区块中的交易数量 
 eth_getCode 返回给定地址的已编译智能合约代码（如果有）
-![](/img/12.png) 
-
-![](/img/13.png) 
 * eth_getLogs 返回与给定过滤器对象匹配的所有日志的数组
-![](/img/14.png) 
-
-![](/img/15.png) 
-
-###  为了防止查询消耗太多资源，eth_getLogs当前请求受到两个约束的限制：单个查询最多可返回10,000个结果，查询时间不得超过10秒，否则会返回错误
+为了防止查询消耗太多资源，eth_getLogs当前请求受到两个约束的限制：单个查询最多可返回10,000个结果，查询时间不得超过10秒，否则会返回错误
 * eth_getStorageAt 从给定地址的储存位置返回值。
-![](/img/16.png) 
-
-![](/img/17.png) 
-
 * eth_getTransactionByBlockHashAndIndex 通过区块哈希和交易索引位置返回有关交易的信息
-![](/img/18.png) 
-
-![](/img/19.png)
-
 * eth_getTransactionByBlockNumberAndIndex 通过块号和交易索引位置返回有关交易的信息
-![](/img/20.png) 
-
-![](/img/21.png)
-
 * eth_getTransactionByHash 返回有关给定哈希值的交易的信息。
-![](/img/22.png) 
-
-![](/img/23.png)
-
 * eth_getTransactionCount 返回从地址发送的交易数。
-![](/img/24.png) 
-
-![](/img/25.png)
-
 * eth_getTransactionReceipt 按交易哈希值返回交易的收据。请注意，收据不适用于未决交易。
-![](/img/26.png) 
-
-![](/img/27.png)
-
 * eth_getUncleByBlockHashAndIndex 通过散列和Uncle索引位置返回有关块的“ Uncle”的信息。
-![](/img/28.png) 
-
-![](/img/29.png)
-
 * eth_getUncleByBlockNumberAndIndex 通过散列和Uncle索引位置返回有关块的“ Uncle”的信息。
-![](/img/30.png) 
-
-![](/img/31.png)
-
 * eth_getUncleCountByBlockHash 从与给定块哈希匹配的块中返回块中的叔叔数。 
-![](/img/32.png) 
-
-![](/img/33.png)
-
 * eth_getUncleCountByBlockNumber 从与给定块号匹配的块中返回一个块中的叔叔数。
-![](/img/34.png) 
-
-![](/img/35.png)
-
-* eth_getWork  返回当前块的哈希，seedHash和要满足的边界条件（“目标”）。
-![](/img/36.png) 
+* eth_getWork  返回当前块的哈希，seedHash和要满足的边界条件（“目标”）。 
 * eth_hashrate  返回节点每秒挖掘的哈希数。仅在节点正在挖掘时适用。
-![](/img/37.png) 
 * eth_mining 如果客户端正在积极挖掘新块，则返回true。
-![](/img/38.png) 
 * eth_protocolVersion 返回当前的以太坊协议版本。
-![](/img/39.png)
 * eth_sendRawTransaction 提交预签名交易以广播到以太坊网络。
-![](/img/40.png)
-
-![](/img/41.png)
-
 * eth_SubmitWork 用于提交工作量证明解决方案。
-![](/img/42.png)
-
-![](/img/43.png)
-
 * eth_syncing  返回带有有关同步状态或false数据的对象。
-![](/img/44.png)
 * eth_net_listening 如果客户端正在积极侦听网络连接，则返回true。
-![](/img/45.png)
 * eth_net_peerCount  返回当前连接到客户端的对等体的数量。
-![](/img/46.png)
 * eth_net_version 返回当前的网络ID。
-![](/img/47.png)
 * eth_web3_clientVersion 返回当前客户端版本。
-![](/img/48.png)
 
-_____________
+------------------------------------
 
 ## 三、速率限制
 帐户超出其每日请求限制后将受到费率限制。当受到速率限制后，会返回错误码及错误数据，下面是解决办法：
